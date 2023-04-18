@@ -22,5 +22,18 @@
         public function Moving(){
             echo "<p> Player: ".$this->nameWarrior." moves at speed: ".$this->speed."</p>";
         }
+        public function update_speed($updeter){
+            $this->speed = $this->speed + $updeter;
+        }
+        public function update_health($updeter){
+            $this->health = $this->health + $updeter;
+        }
+        public function update_protection($updeter){
+            $this->protection = $this->protection + $updeter;
+        }
+        public function __toString()
+        {
+            return 'Name: '.$this->nameWarrior.'<br>'.'Speed: '.$this->speed.'<br>'.'Health: '.$this->health;
+    }
     }
 ?>
