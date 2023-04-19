@@ -25,6 +25,7 @@ include_once 'Warriors/Commander.php';
 include_once 'Achievements/Defense.php';
 include_once 'Achievements/Health.php';
 include_once 'Achievements/Boost.php';
+include_once 'Battlefield.php';
 
 $wer = new Mounted('Vasya',new Axe(),100,new Armor_Textile(),20,new Horse());
 $wer2 = new Mounted('Dobrinya',new Bow(),100,new Armor_Textile(),20,new Horse());
@@ -46,7 +47,10 @@ $squad->addToSquad(new Foot_Warrior('Vova',new Halderd(),100,new Armor_Leather()
 $squad->addToSquad(new Mounted('Sergey',new Axe(),100,new Armor_Leather(),30,new Horse()));
 $squad->addToSquad(new Foot_Warrior('Vlad',new Peak(),100,new Armor_Textile(),20));
 $squad->addToSquad(new Foot_Warrior('Roma',new Spear(),100,new Armor_Leather(),15));
-$squad->getSquad();
+foreach ($squad->getSquad() as $squad_1)
+{
+    echo '<p>'.$squad_1.'</p>';
+}
 
 
 $comm_2 = new Commander();
@@ -61,5 +65,15 @@ $squad_2->addToSquad(new Mounted('Maksim',new Halderd(),100,new Armor_Leather(),
 $squad_2->addToSquad(new Mounted('Evkakiy',new Axe(),100,new Armor_Leather(),30,new Horse()));
 $squad_2->addToSquad(new Mounted('Gordon',new Peak(),100,new Armor_Textile(),20,new Horse()));
 $squad_2->addToSquad(new Foot_Warrior('Slavik',new Spear(),100,new Armor_Leather(),15));
-$squad_2->getSquad();
+foreach ($squad_2->getSquad() as $squad2)
+{
+    echo '<p>'.$squad2.'</p>';
+}
+
+
+echo "<p>-------------------------------------------------------------------------------------------------------------</p>";
+$battlefield = new Battlefield("false",$squad,$squad_2);
+echo "<p>-------------------------------------------------------------------------------------------------------------</p>";
+echo "Battle";
+$battlefield->Battle();
 ?>

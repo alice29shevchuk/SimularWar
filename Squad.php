@@ -15,6 +15,11 @@ class Squad{
         $this->commander = $commander;
 
     }
+
+    public function getMinCount()
+    {
+        return $this->minCount;
+    }
     public function getNameSquad()
     {
         return $this->nameSquad;
@@ -39,9 +44,7 @@ class Squad{
     {
         if(count($this->arrWarriors)>=$this->minCount)
         {
-            foreach ($this->arrWarriors as $item){
-                echo '<p>'.$item.'</p>';
-            }
+            return $this->arrWarriors;
         }
         else{
             echo $this->nameSquad.' не укомплектован!'.'<br>';

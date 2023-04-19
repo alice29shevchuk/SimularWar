@@ -7,6 +7,17 @@
         protected $speed;
         protected $protection;
 
+        public function isLive(){
+            if($this->health > 0){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        public function get_name(){
+            return $this->nameWarrior;
+        }
         public function Attack($enemy){
             $enemy->health = $enemy->health - $this->weapon->getDamage();
             echo "<p>Player: ".$this->nameWarrior." attack -> player: ".$enemy->nameWarrior."</p>";
